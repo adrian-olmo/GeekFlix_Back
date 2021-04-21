@@ -5,13 +5,35 @@ module.exports = {
     await queryInterface.bulkInsert('genres', [
       {
         name: 'Action'
-      }, {
-        name: 'Science Fiction'
-      }, {
-        name: 'Comedy'
-      }, {
-        name: 'Terror'
       },
+      {
+        name: 'Adventures'
+      },
+      {
+        name: 'Animation'
+      },
+      {
+        name: 'Comedy'
+      },
+      {
+        name: 'Drama'
+      },
+      {
+        name: 'Horror'
+      },
+      {
+        name: 'Love'
+      },
+      {
+        name: 'Science Fiction'
+      },
+      {
+        name: 'Thriller'
+      },
+      {
+        name: 'War'
+      },
+
     ])
   },
 
