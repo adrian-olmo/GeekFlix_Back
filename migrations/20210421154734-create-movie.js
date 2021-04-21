@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       year: {
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER
       },
       poster_path: {
         type: Sequelize.STRING
