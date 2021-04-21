@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('movies', [
       {
         title: 'Prueba1',
-        year: '21/04/2021',
+        year: '2021',
         poster_path: 'Imagen01',
         director: 'Ruben Fernandez',
         genreID: 4
@@ -13,7 +13,7 @@ module.exports = {
       },
       {
         title: 'Prueba2',
-        year: '21/04/2021',
+        year: '2021',
         poster_path: 'Imagen02',
         director: 'Adrian Olmo',
         genreID: 1
