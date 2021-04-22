@@ -1,6 +1,6 @@
 import sequelize from "sequelize";
 
-const db = 'geekfliks';
+const db = 'geekflix';
 const username = 'root'
 const password = '';
 
@@ -12,17 +12,20 @@ const database = new sequelize(db, username, password, {
     }
 });
 
-database.authentication().then(() => {
-    async () => {
-        console.log('database connected');
-        try {
-            await database.sync({ force: true });
-        } catch (error) {
-            console.log(error);
+database.
+    authenticate()
+    .then(() => {
+        async () => {
+            console.log("Database Connected");
+            try {
+                await database.sync({ force: true });
+            } catch (error) {
+                console.log(error.message);
+            }
         }
-    };
-}).catch(e => {
-    console.log(e.message);
-});
+    })
+    .catch(e => {
+        console.log(e.message);
+    })
 
 export default database;
