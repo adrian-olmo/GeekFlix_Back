@@ -12,12 +12,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       year: {
-        type: Sequelize.INTEGER
-      },
-      poster_path: {
         type: Sequelize.STRING
       },
-      director: {
+      poster_path: {
         type: Sequelize.STRING
       },
       genreID: {
