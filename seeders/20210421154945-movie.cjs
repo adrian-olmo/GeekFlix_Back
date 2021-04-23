@@ -7,7 +7,6 @@ module.exports = {
         title: 'Prueba1',
         year: '2021',
         poster_path: 'Imagen01',
-        director: 'Ruben Fernandez',
         genreID: 4
 
       },
@@ -15,7 +14,6 @@ module.exports = {
         title: 'Prueba2',
         year: '2021',
         poster_path: 'Imagen02',
-        director: 'Adrian Olmo',
         genreID: 1
 
       },
@@ -23,7 +21,6 @@ module.exports = {
         title: 'Prueba3',
         year: '2021',
         poster_path: 'Imagen03',
-        director: 'Gabriel Abarca',
         genreID: 6
 
       },
@@ -31,7 +28,6 @@ module.exports = {
         title: 'Prueba4',
         year: '2021',
         poster_path: 'Imagen04',
-        director: 'Angel Rodriguez',
         genreID: 2
 
       },
@@ -39,7 +35,6 @@ module.exports = {
         title: 'Prueba5',
         year: '2021',
         poster_path: 'Imagen05',
-        director: 'Jarki Melendez',
         genreID: 9
 
       }

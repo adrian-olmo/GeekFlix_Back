@@ -6,6 +6,8 @@ import { movieRoutes } from "./routes/movie.routes.js";
 import { userRoutes } from "./routes/user.routes.js";
 import { genreRoutes } from "./routes/genre.routes.js";
 import { orderRoutes } from "./routes/order.routes.js";
+import { registerRoutes } from "./routes/resgister.routes.js";
+import { loginRoutes } from "./routes/login.routes.js";
 
 //Configurations
 const app = express();
@@ -28,6 +30,8 @@ app.use('/movies', movieRoutes);
 app.use('/users', userRoutes);
 app.use('/genres', genreRoutes);
 app.use('/orders', orderRoutes);
+app.use('/singup', registerRoutes);
+app.use('/login', loginRoutes);
 
 //Database Server
 app.listen(5000, () => {
