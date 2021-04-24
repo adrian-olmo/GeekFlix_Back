@@ -12,8 +12,6 @@ Order.init({
   rentstart: DataTypes.DATE,
   rentend: DataTypes.DATE,
   status: DataTypes.STRING,
-  userID: DataTypes.INTEGER,
-  movieID: DataTypes.INTEGER
 }, {
   sequelize: database,
   modelName: 'Order',
