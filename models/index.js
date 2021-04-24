@@ -4,8 +4,10 @@ import { Genre } from "./genre.js";
 import { Movie } from "./movie.js";
 
 //Relaciones 1:N
-User.hasMany(Order, { foreignKey: "userID" })
-Genre.hasMany(Movie, { foreignKey: "genreID" })
+User.hasMany(Order, { foreignKey: "userID" });
+Genre.hasMany(Movie, { foreignKey: "genreID" });
 
 //Relaciones 1:1
-Movie.belongsTo(Order, { foreignKey: "movieID" })
+Movie.belongsTo(Order, { foreignKey: "movieID" });
+
+export { User, Order, Genre, Movie }
