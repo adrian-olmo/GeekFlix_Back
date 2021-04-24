@@ -30,7 +30,7 @@ app.use('/movies', movieRoutes);
 app.use('/users', userRoutes);
 app.use('/genres', genreRoutes);
 app.use('/orders', orderRoutes);
-app.use('/singup', registerRoutes);
+app.use('/signup', registerRoutes);
 app.use('/login', loginRoutes);
 
 //Database Server

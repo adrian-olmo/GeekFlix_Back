@@ -1,6 +1,6 @@
 import sequelize from "sequelize";
 
-const db = 'geekflix';
+const db = 'GeekFlix';
 const username = 'root'
 const password = '';
 
