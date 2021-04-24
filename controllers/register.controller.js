@@ -7,7 +7,7 @@ export const registerController = {
         let password = req.body.password;
 
         try {
-            const newUser = await database.query(`INSERT INTO users (email, password) VALUES ('${email}', '${password}')`)
+            const newUser = await database.query(`INSERT INTO Users (email, password) VALUES ('${email}', '${password}')`)
             res.json(newUser);
         } catch (error) {
             res.json({ error: 'No se pudo crear usuario' })

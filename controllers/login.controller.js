@@ -7,7 +7,7 @@ export const loginController = {
         let password = req.headers.password
 
         try {
-            const userLogin = await database.query(`SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`, { type: database.QueryTypes.SELECT })
+            const userLogin = await database.query(`SELECT * FROM Users WHERE email = '${email}' AND password = '${password}'`, { type: database.QueryTypes.SELECT })
             res.json(userLogin)
         } catch (error) {
             res.json({ error: 'Error al iniciar sesion' })

@@ -15,7 +15,7 @@ export const genreController = {
         let genreName = req.body.name;
 
         try {
-            const genreList = await database.query(`SELECT * FROM genres WHERE name = "${genreName}"`, { type: database.QueryTypes.SELECT })
+            const genreList = await database.query(`SELECT * FROM Genres WHERE name = "${genreName}"`, { type: database.QueryTypes.SELECT })
             res.json(genreList);
         } catch (error) {
             res.json({ error: 'Error al encontrar genero' })
