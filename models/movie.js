@@ -12,7 +12,6 @@ Movie.init({
   title: DataTypes.STRING,
   year: DataTypes.INTEGER,
   poster_path: DataTypes.STRING,
-  director: DataTypes.STRING,
   genreID: DataTypes.INTEGER
 
 }, {
