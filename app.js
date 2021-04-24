@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 //Routes
 import { movieRoutes } from "./routes/movie.routes.js";
@@ -12,6 +13,7 @@ import { loginRoutes } from "./routes/login.routes.js";
 //Configurations
 const app = express();
 app.use(express.json());
+app.use(cors())
 dotenv.config();
 
 app.use((req, res, next) => {
