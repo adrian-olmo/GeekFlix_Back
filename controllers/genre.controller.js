@@ -3,7 +3,7 @@ import database from "../database.js";
 export const genreController = {
     list: async (req, res) => {
         try {
-            const listGenres = await database.query(`SELECT * FROM genres `, { type: database.QueryTypes.SELECT })
+            const listGenres = await database.query(`SELECT * FROM Genres `, { type: database.QueryTypes.SELECT })
             res.json(listGenres)
         } catch (error) {
             res.json({ error: 'Error al encontrar generos' });
