@@ -1,6 +1,6 @@
 'use strict';
 import pkg from 'sequelize';
-import { database } from "../database.js"
+import database from "../database.js"
 
 const { Model, DataTypes } = pkg;
 

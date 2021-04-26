@@ -10,4 +10,6 @@ Genre.hasMany(Movie, { foreignKey: "genreID" });
 //Relaciones 1:1
 Movie.belongsTo(Order, { foreignKey: "movieID" });
 
+Movie.belongsTo(Genre, { foreignKey: "genreID" });
+
 export { User, Order, Genre, Movie }

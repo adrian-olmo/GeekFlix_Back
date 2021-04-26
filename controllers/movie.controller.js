@@ -1,13 +1,24 @@
 import database from "../database.js";
+import { Genre, Movie } from "../models/index.js";
 
 export const movieController = {
     list: async (req, res) => {
-        try {
-            const listMovies = await database.query(`SELECT * FROM Movies `, { type: database.QueryTypes.SELECT })
-            res.json(listMovies);
 
-        } catch (error) {
-            res.json({ error: error })
+        try {
+            const movieList = await Movie.findAndCountAll({
+                include: [
+                    {
+                        model: Genre,
+                        attributes: ['name']
+                    }
+                ],
+                attributes: ['id', 'title', 'poster_path']
+            })
+
+            res.status(201).send(movieList);
+        }
+        catch (error) {
+            res.json({ message: error.message });
         }
     },
 
