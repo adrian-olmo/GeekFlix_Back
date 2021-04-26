@@ -8,7 +8,8 @@ export class User extends Model { }
 
 User.init({
   email: DataTypes.STRING,
-  password: DataTypes.STRING
+  password: DataTypes.STRING,
+  role: DataTypes.STRING
 }, {
   sequelize: database,
   modelName: 'User',
