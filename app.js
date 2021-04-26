@@ -9,6 +9,8 @@ import { genreRoutes } from "./routes/genre.routes.js";
 import { orderRoutes } from "./routes/order.routes.js";
 import { registerRoutes } from "./routes/register.routes.js";
 import { loginRoutes } from "./routes/login.routes.js";
+import checkUser from "./middlewares/checkUser.js";
+import checkAdmin from "./middlewares/checkAdmin.js";
 
 //Configurations
 const app = express();
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
 
 //Use Routes
 app.use('/movies', movieRoutes);
-app.use('/users', userRoutes);
+app.use('/users', checkUser, checkAdmin, userRoutes);
 app.use('/genres', genreRoutes);
 app.use('/orders', orderRoutes);
 app.use('/signup', registerRoutes);
