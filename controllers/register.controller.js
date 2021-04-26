@@ -1,11 +1,13 @@
 import database from "../database.js";
 import { User } from "../models/index.js";
+import bcrypt from "bcrypt";
 
 export const registerController = {
     create: async (req, res) => {
 
         let email = req.body.email;
         let password = req.body.password;
+        let hashTemp = 10;
 
         const checkUser = await User.findOne({ where: { email: email } });
 
@@ -15,7 +17,9 @@ export const registerController = {
         if (!checkUser && emailValidation.length === 2 && password.length > 3) {
 
             try {
-                const newUser = await database.query(`INSERT INTO Users (email, password) VALUES ('${email}', '${password}')`)
+                const passwordHash = await bcrypt.hash(password, hashTemp);
+
+                const newUser = await database.query(`INSERT INTO Users (email, password) VALUES ('${email}', '${passwordHash}')`)
                 console.log(`User with email ${email} was created`);
                 res.sendStatus(200);
 

@@ -5,12 +5,11 @@ const checkUser = async (req, res, next) => {
         console.log("Verifying user...");
 
         jwt.verify(req.headers.token, process.env.SECRET);
-
         next();
 
     } catch (error) {
 
-        res.status(401).send({ message: error.message })
+        res.status(401).send({ message: error.message });
     }
 }
 
