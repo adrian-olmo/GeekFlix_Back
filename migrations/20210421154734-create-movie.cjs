@@ -25,6 +25,9 @@ module.exports = {
           key: 'id'
         }
       },
+      overview: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

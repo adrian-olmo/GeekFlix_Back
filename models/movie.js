@@ -12,6 +12,7 @@ Movie.init({
   title: DataTypes.STRING,
   year: DataTypes.INTEGER,
   poster_path: DataTypes.STRING,
+  overview: DataTypes.TEXT
 
 }, {
   sequelize: database,
