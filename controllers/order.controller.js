@@ -28,10 +28,10 @@ export const orderController = {
         let userEmail = req.body.email;
 
         try {
-            const userOrderList = await database.query(`SELECT orders.id AS 'Numero Pedido', users.email AS 'Email Usuario', 
-            movies.title AS 'Pelicula', orders.rentstart AS 'Fecha Alquiler', orders.rentend AS 'Fecha Devolucion'
+            const userOrderList = await database.query(`SELECT Orders.id AS 'Numero Pedido', Users.email AS 'Email Usuario', 
+            Movies.title AS 'Pelicula', Orders.rentstart AS 'Fecha Alquiler', Orders.rentend AS 'Fecha Devolucion'
             FROM Orders, Users, Movies 
-            WHERE orders.userID = users.id AND orders.movieID = movies.id AND users.email = "${userEmail}"`, { type: database.QueryTypes.SELECT });
+            WHERE Orders.userID = Users.id AND Orders.movieID = Movies.id AND Users.email = "${userEmail}"`, { type: database.QueryTypes.SELECT });
 
             res.json(userOrderList);
 

@@ -5,3 +5,4 @@ export const movieRoutes = Router();
 
 movieRoutes.get('/', movieController.list);
 movieRoutes.get('/title', movieController.listName)
+movieRoutes.get('/id', movieController.listID)
