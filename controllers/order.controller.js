@@ -41,13 +41,15 @@ export const orderController = {
             const listOrders = await Order.findAll();
             console.log(listOrders);
 
+            const nuevoPedido = await database.query(`INSERT INTO orders (rentstart, rentend, status , userID, movieID) VALUES ('${newOrder.rentstart}', '${newOrder.rentend}',' ${newOrder.status}', ${newOrder.userID}, ${newOrder.movieID})`)
+            res.json(nuevoPedido)
             // await database.query(`INSERT INTO Orders (rentstart, rentend, status, userID, movieID, createdAt, updatedAt) VALUES (CURDATE(), CURDATE(), Alquilada, 2, 2)`);
 
             // Existe un pedido de esa película con estado "Alquilada"?
             // const alreadyOrder = await Order.findAll({ where: { movieID: movieId, userID: user.id, status: "Alquilada" } })
-            const order = await Order.create(newOrder);
+            /* const order = await Order.create(newOrder);
 
-            res.send(order);
+            res.send(order); */
 
         } catch (error) {
             res.json({ error: error.message });
@@ -91,6 +93,11 @@ export const orderController = {
         } catch (error) {
             res.json(error);
         }
+
+    },
+
+    createOrder: async (req, res) => {
+
 
     }
 }
