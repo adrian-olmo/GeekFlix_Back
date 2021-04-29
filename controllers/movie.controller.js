@@ -12,7 +12,7 @@ export const movieController = {
                         attributes: ['name']
                     }
                 ],
-                attributes: ['id', 'title', 'poster_path']
+                attributes: ['id', 'title', 'year', 'poster_path', 'overview']
             })
 
             res.status(201).send(movieList);
@@ -31,6 +31,18 @@ export const movieController = {
             res.json(titleMovie)
         } catch (error) {
             res.json({ error: 'Pelicula no encontrada' });
+        }
+    },
+
+    listID: async (req, res) => {
+
+        const movieID = req.body.id
+
+        try {
+            const idMovie = await database.query(`SELECT * FROM Movies WHERE id = "${movieID}"`, { type: database.QueryTypes.SELECT })
+            res.json(idMovie)
+        } catch (error) {
+            res.json({ error: error })
         }
     }
 }
