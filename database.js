@@ -2,7 +2,7 @@ import sequelize from "sequelize";
 
 const db = 'GeekFlix';
 const username = 'root'
-const password = '';
+const password = 'root';
 
 const database = new sequelize(db, username, password, {
     dialect: "mysql",

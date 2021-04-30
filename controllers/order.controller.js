@@ -13,16 +13,20 @@ export const orderController = {
             const user = await User.findOne({ where: { email: userData.email } });
 
             // Fechas de inicio y de finalización del pedido. Es automático. El pedido estándar son 3 días de préstamo.
-            const rentStart = new Date();
-
+            // Función que toma suma un determinado numero de días a una fecha.
             function addDays(date, days) {
                 var result = new Date(date);
                 result.setDate(result.getDate() + days);
                 return result;
             }
+            const start = new Date();
+            const end = addDays(start, 3);
 
-            const rentEnd = addDays(rentStart, 3);
+            // Formateo de fechas para SQL
+            const rentStart = start.toISOString().slice(0, 19).replace('T', ' ');
+            const rentEnd = end.toISOString().slice(0, 19).replace('T', ' ');
 
+            // El nuevo pedido
             const newOrder = {
                 rentstart: rentStart,
                 rentend: rentEnd,
@@ -31,25 +35,18 @@ export const orderController = {
                 movieID: Number(movieId)
             }
 
-            // console.log(newOrder);
+            // Verificamos si existe ya un pedido activo (estado = alquilada) para el usuario. Si no hay, lo crea
+            const listOrder = await database.query(`SELECT * FROM Orders WHERE userId = ${newOrder.userID} AND movieID = ${newOrder.movieID} AND status = '${newOrder.status}'`, { type: database.QueryTypes.SELECT })
 
-            // console.log(newOrder);
-            const listOrder = await database.query(`SELECT * FROM Orders`, { type: database.QueryTypes.SELECT })
-            console.log(listOrder);
-            console.log("------------------------------------------")
+            console.log(listOrder.length);
 
-            const listOrders = await Order.findAll();
-            console.log(listOrders);
+            if (listOrder.length == 0) {
+                await database.query(`INSERT INTO Orders (rentstart, rentend, status , userID, movieID) VALUES ('${newOrder.rentstart}', '${newOrder.rentend}','${newOrder.status}', ${newOrder.userID}, ${newOrder.movieID})`)
 
-            const nuevoPedido = await database.query(`INSERT INTO orders (rentstart, rentend, status , userID, movieID) VALUES ('${newOrder.rentstart}', '${newOrder.rentend}',' ${newOrder.status}', ${newOrder.userID}, ${newOrder.movieID})`)
-            res.json(nuevoPedido)
-            // await database.query(`INSERT INTO Orders (rentstart, rentend, status, userID, movieID, createdAt, updatedAt) VALUES (CURDATE(), CURDATE(), Alquilada, 2, 2)`);
-
-            // Existe un pedido de esa película con estado "Alquilada"?
-            // const alreadyOrder = await Order.findAll({ where: { movieID: movieId, userID: user.id, status: "Alquilada" } })
-            /* const order = await Order.create(newOrder);
-
-            res.send(order); */
+                res.json({ message: "El pedido se ha realizado correctamente" });
+            } else {
+                res.json("El usuario tiene este alquiler en activo");
+            }
 
         } catch (error) {
             res.json({ error: error.message });
@@ -84,7 +81,7 @@ export const orderController = {
 
         try {
             const userOrderList = await database.query(`SELECT Orders.id AS 'Numero Pedido', Users.email AS 'email', 
-            Movies.title AS 'title', Movies.poster_path AS 'poster', Orders.rentstart AS 'orderStart', Orders.rentend AS 'orderEnd'
+            Movies.title AS 'title', Movies.poster_path AS 'poster', Orders.rentstart AS 'orderStart', Orders.rentend AS 'orderEnd', Orders.status AS 'estado'
             FROM Orders, Users, Movies 
             WHERE Orders.userID = Users.id AND Orders.movieID = Movies.id AND Users.email = "${userEmail}"`, { type: database.QueryTypes.SELECT });
 
