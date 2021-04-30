@@ -81,7 +81,7 @@ export const orderController = {
 
         try {
             const userOrderList = await database.query(`SELECT Orders.id AS 'Numero Pedido', Users.email AS 'email', 
-            Movies.title AS 'title', Movies.poster_path AS 'poster', Orders.rentstart AS 'orderStart', Orders.rentend AS 'orderEnd'
+            Movies.title AS 'title', Movies.poster_path AS 'poster', Orders.rentstart AS 'orderStart', Orders.rentend AS 'orderEnd', Orders.status AS 'estado'
             FROM Orders, Users, Movies 
             WHERE Orders.userID = Users.id AND Orders.movieID = Movies.id AND Users.email = "${userEmail}"`, { type: database.QueryTypes.SELECT });
 
