@@ -36,7 +36,8 @@ export const movieController = {
 
     listID: async (req, res) => {
 
-        const movieID = req.body.id
+        /*  const movieID = req.header.id */
+        const movieID = req.params.id
 
         try {
             const idMovie = await database.query(`SELECT * FROM Movies WHERE id = "${movieID}"`, { type: database.QueryTypes.SELECT })
