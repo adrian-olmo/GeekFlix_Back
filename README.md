@@ -1,10 +1,9 @@
 # GeekFlix_Back
 # Table of contents
 - [Introduccion](#Introduccion)
-- [Run](#Run)
-- [Folder structure](#Project-folder-structure)
-- [Demo](#Demo)
-- [Features](#Features)
+- [Base de Datos](#Base de datos)
+- [Endpoints](#Endpoints)
+- [Autores](#Authors)
 #
 
 ### Introduccion: 
@@ -56,7 +55,7 @@ Para la construcción de este proyecto, se dibujó un esquema con los diferentes
   - **/users/email**: muestra los datos de un solo usuario.
  
  
- ## Authors
+ ## Autores
 
 [Rubén Fernández](https://www.linkedin.com/in/rubenfernandezsantos/)
 
