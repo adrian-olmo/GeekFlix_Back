@@ -47,3 +47,10 @@ Para la construcción de este proyecto, se dibujó un esquema con los diferentes
  ### Users: 
   - **/users**: muestra un listado completo de los datos de un usuario.
   - **/users/email**: muestra los datos de un solo usuario.
+ 
+ 
+ ## Authors
+
+[Rubén Fernández](https://www.linkedin.com/in/rubenfernandezsantos/)
+
+[Adrián Olmo](https://www.linkedin.com/in/adrian-olmo/)
