@@ -1,7 +1,7 @@
 # GeekFlix_Back
 # Table of contents
 - [Introduccion](#Introduccion)
-- [Base de Datos](#Base de datos)
+- [Base de Datos](#BBDD)
 - [Endpoints](#Endpoints)
 - [Autores](#Authors)
 #
@@ -9,7 +9,7 @@
 ### Introduccion: 
 Gestión de los datos de GeekFlix manejado mediante una base de datos **SQL** que interactua con funciones desarrolladas en **Node.js** con el ORM de **Sequelize**, que nos perminte manipular los datos.
 
-### Base de datos:
+### BBDD:
 Para la construcción de este proyecto, se dibujó un esquema con los diferentes modelos, los datos que iban a tener y las relaciones que tenían entre sí.
 
 ![image](https://raw.githubusercontent.com/adrian-olmo/GeekFlix_Back/develop/assets/bbdd.png)
