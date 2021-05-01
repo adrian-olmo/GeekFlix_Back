@@ -1,4 +1,11 @@
 # GeekFlix_Back
+# Table of contents
+- [Introduccion](#Introduccion)
+- [Run](#Run)
+- [Folder structure](#Project-folder-structure)
+- [Demo](#Demo)
+- [Features](#Features)
+#
 
 ### Introduccion: 
 Gestión de los datos de GeekFlix manejado mediante una base de datos **SQL** que interactua con funciones desarrolladas en **Node.js** con el ORM de **Sequelize**, que nos perminte manipular los datos.
