@@ -42,10 +42,10 @@ export const orderController = {
 
             if (listOrder.length == 0) {
                 await database.query(`INSERT INTO Orders (rentstart, rentend, status , userID, movieID) VALUES ('${newOrder.rentstart}', '${newOrder.rentend}','${newOrder.status}', ${newOrder.userID}, ${newOrder.movieID})`)
-
-                res.json({ message: "El pedido se ha realizado correctamente" });
+                res.status(200).send({ message: "El pedido se ha realizado correctamente" });
             } else {
-                res.json("El usuario tiene este alquiler en activo");
+                res.status(409).send({ message: "El usuario tiene este alquiler en activo" })
+                // res.json("El usuario tiene este alquiler en activo");
             }
 
         } catch (error) {
