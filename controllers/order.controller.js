@@ -55,7 +55,9 @@ export const orderController = {
 
     list: async (req, res) => {
         try {
-            const listOrder = await database.query(`SELECT * FROM Orders`, { type: database.QueryTypes.SELECT })
+            const listOrder = await database.query(`SELECT Orders.id AS 'id', Users.email AS 'email', 
+            Movies.title AS 'title', Movies.poster_path AS 'poster', Orders.rentstart AS 'orderStart', Orders.rentend AS 'orderEnd', Orders.status AS 'estado'
+            FROM Orders, Users, Movies WHERE Orders.userID = Users.id AND Orders.movieID = Movies.id`, { type: database.QueryTypes.SELECT })
             res.json(listOrder);
         } catch (error) {
             res.json({ error: 'No se encuentran pedidos' });
@@ -93,8 +95,26 @@ export const orderController = {
 
     },
 
-    createOrder: async (req, res) => {
+    cancelOrder: async (req, res) => {
 
+        let idOrder = req.params.id;
+        console.log(idOrder);
+
+        try {
+
+            const getOrder = await database.query(`SELECT * FROM Orders WHERE id = ${idOrder}`, { type: database.QueryTypes.SELECT });
+
+            if (getOrder.length == 0) {
+                res.json({ message: "El pedido no existe" })
+            } else {
+                await database.query(`UPDATE Orders SET status = "Caducada" WHERE id = ${idOrder}`);
+                res.json({ message: "El pedido ha cambiado de estado correctamente" })
+            }
+
+
+        } catch (error) {
+            res.json({ message: "Algo fue mal" });
+        }
 
     }
 }
