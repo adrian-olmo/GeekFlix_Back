@@ -1,5 +1,4 @@
-# GeekFlix_Back
-# Table of contents
+# GeekFlix BackEnd
 - [Introduccion](#Introduccion)
 - [Base de Datos](#BBDD)
 - [Endpoints](#Endpoints)
