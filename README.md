@@ -24,11 +24,26 @@ Para la construcción de este proyecto, se dibujó un esquema con los diferentes
  ### Movies: 
  
  - Dividido en tres subrutas diferentes:
-   - **/movies** ➡️ muestra un listado de todas las películas disponibles.
-   - **/movies/title** ➡️ permite hacer una búsqueda de una película a través de su título.
-   - **/movies:id** ➡️ lista la película cuyo ID sea igual al que le hemos pasado.
+   - **/movies**: muestra un listado de todas las películas disponibles.
+   - **/movies/title**: permite hacer una búsqueda de una película a través de su título.
+   - **/movies:id**: lista la película cuyo ID sea igual al que le hemos pasado.
 
  ### Genres: 
  - Dividido en dos rutas:
-   - **/genres** ➡️ lista todos los géneros disponibles dentro de la base de datos.
-   - **/genres/genre** ➡️ muestra un género concreto.
+   - **/genres**: lista todos los géneros disponibles dentro de la base de datos.
+   - **/genres/genre**: muestra un género concreto.
+   
+ ### Orders: 
+ - Al igual que las dos rutas anteriores, esta también se encuentra dividida en varias rutas
+   - **/orders**: un listado general de todos los pedidos que se han realizado.
+   - **/orders/order**: muestra el resultado de buscar un solo pedido.
+   - **/orders/userorder**: resultado de buscar todos aquellos pedidos de un usuario, además mostrará que película ha alquilado, cuando ha sido alquilada y cuando debe ser devuelta.
+   - **/orders/newOrder**: permite crear un pedido, con la fecha de cuando ha sido creado el pedido, una fecha de devolución, el usuario que ha realizado el pedido, la película que ha alquilado y el estado del pedido, por defecto aparecerá alquilada.
+   - **/orders/:id**: esta ruta permitirá al usuario cancelar un pedido.
+
+ - Para las rutas **/orders** y **/orders/:id** se requiere un token que solo se le genera a aquellos usuarios cuyo rol sean administradores.
+ - Para las rutas anteriores y el resto de rutas, se precisa de estar registrado en la aplicación.
+
+ ### Users: 
+  - **/users**: muestra un listado completo de los datos de un usuario.
+  - **/users/email**: muestra los datos de un solo usuario.
